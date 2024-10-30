@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_物件的拷貝/複製</title>
+</head>
+
+<body>
+
+    <script>
+        // 物件沒有被實際拷貝
+        let a = { x: 3, y: 4 };
+        let b = a;
+        b.x = 5
+        console.log(a.x);
+
+        // 物件的拷貝與複製
+        let aa={x:3,y:4};
+        let bb={...aa};
+        bb.x=5;
+        console.log(aa.x);
+
+        // 淺拷貝:僅拷貝物件的第一層資料,第二層以上為參考原來的物件或是陣列
+        let cc={x:3,y:4,data:[1,2,3]};
+        // #1使用其餘運算符號...拷貝
+        let cc1={...cc};
+        cc1.data[0]=4;
+        // #2使用內建方法Object.assign()拷貝
+        let cc2=Object.assign({},cc);
+        console.log(cc1);
+        console.log(cc2);
+        console.log(cc.data[0]);
+
+
+        // 深拷貝:完全拷貝物件底下的所有層次的資料
+        // JSON.stringify()將物件字串化
+        // JSON.parse()根據字串化的資料重新建立物件結構,完成深拷貝
+        // JSON無法拷貝函式、symbol的資料
+
+        let d={x:1,y:2,data:[3,2,1]};
+        // 將物件結構字串化
+        let str=JSON.stringify(d);
+        // 根據字串化的資料重新建立物件結構
+        let d2=JSON.parse(str);
+        // 以上完成深拷貝,互不影響
+        d2.data[0]=4;
+        console.log(d.data[0]);
+
+    </script>
+</body>
+
+</html>

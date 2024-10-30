@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_函式基礎</title>
+</head>
+<body>
+    <script>
+    // 建立函式
+    function test(){
+        console.log("Hello");
+        console.log("World");
+    }
+    // 呼叫函式
+    test();
+    test();
+
+    function show(a){
+        console.log(a);
+    }
+    show("Hi");
+    show();
+
+
+    // 做除法
+    function divide(n1,n2){
+        number=n1/n2;
+        console.log(number);
+    }
+    divide(10,2);
+    divide("Hello","sandy"); // 顯示NaN 非數值
+    
+    let divide2=function(n1,n2){
+        number=n1/n2;
+        console.log(number);
+    }
+    divide2(10,5);
+    divide2("Hello","sandy"); // 顯示NaN 非數值
+    </script>
+</body>
+</html>

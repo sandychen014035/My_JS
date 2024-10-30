@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_箭頭函式</title>
+</head>
+
+<body>
+    <!-- 函式的另一種寫法
+     省去function關鍵字,用=>取代 -->
+
+    <!-- 函式本體與有回傳值敘述沒有其他指令時,可簡化 -->
+    <!-- 
+    let 函式名稱=(函式參數列表)=>{return 回傳值;};
+    let 函式名稱=(函式參數列表)=>(回傳值);
+    -->
+
+    <script>
+        // 1+2+3...總和用箭頭函式
+        // 利用迴圈
+        // 一般函式
+        function calculate(max) { 
+            let result = 0; // 總和變數
+            let n = 1 //次數變數
+            while (n <= max) {
+                result = result + n;
+                n++;
+            };
+            console.log(result);
+        }
+        calculate(20);
+
+        // 箭頭函式
+        let calculate1=(max)=>{
+            let result = 0; // 總和變數
+            let n = 1 //次數變數
+            while (n <= max) {
+                result = result + n;
+                n++;
+            };
+            return result;
+        }
+        // 改用return回傳值須設一個變數來接收結果
+        let ans2=calculate1(10);
+        console.log(ans2);
+
+        // 箭頭函式簡化
+        let multiply=(n1,n2)=>{
+            return n1*n2;
+        };
+        let multiply2=(n1,n2)=>(n1*n2);
+        let ans3=multiply2(3,4);
+        console.log(ans3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_運算符號</title>
+</head>
+<body>
+    <script>
+        // 算術運算: + , - , * , / , %
+        let x =7%3 // 7除以3的餘數
+        console.log(x);
+
+        // 指定運算: = , += , -+ , /= , %=
+        x+1;
+        console.log(x); // x的值還是1,x的值沒有更新
+        // 如要變成2需改成如下
+        x=x+1; //x++ x+=1
+        x+=4;  //x=x+4
+        console.log(x);
+
+        // 比較運算: > , < , >= , <= , ==
+        // 比較運算結果會用布林值顯示true/false
+        x=3>4;
+        console.log(x); // 3不大於4 x=false
+        x=3==3
+        console.log(x); // x值等於3 x=true
+
+        // 單元運動: ! , ++ , --
+        // !針對布林值做運算,反轉
+        x=!x; //延續上面的結果
+        console.log(x);
+        // ++,-- 數值+1/-1
+        x=3;
+        x++;
+        console.log(x);
+
+        // 邏輯運算: && , ||
+        // &&並,前後符合
+        // ||或,前後符合其一即可
+        // 針對布林值做運算
+        let test=true&&true;
+        console.log(test);
+        let test1=true&&false;
+        console.log(test1);
+        let test2=true||false;
+        console.log(test2);
+    </script>
+</body>
+</html>

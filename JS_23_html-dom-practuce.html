@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HTML DOM 網頁畫面操作</title>
+    <style>
+        .text{
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>HTML DOM 畫面操作</h3>
+    <div id="contect">練習網頁畫面操作</div>
+    <!-- onclick=>點擊事件 -->
+    <button onclick="change();">點我</button>
+    <script>
+        console.log(document.body);
+
+        function change() {
+            // 整個body的html內文更換
+            // document.body.innerHTML = "新的文字";
+
+            // 取得標籤物件
+            let contectdiv=document.querySelector("#contect");
+            console.log(contectdiv);
+
+            // 操作標籤物件
+            contectdiv.innerHTML="對特定的標籤操作";
+            contectdiv.className='text';
+            contectdiv.style.fontSize="30px";
+            contectdiv.style.color="blue";
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_解構賦值</title>
+</head>
+
+<body>
+    <script>
+        // 陣列的解構賦值
+        let arr = [3, 4, 5];
+
+        // #1 let [d1,d2,d3]=arr;
+
+        let d1, d2, d3,d4;
+        [d1, d2, d3,d4=10] = arr;
+
+        console.log(d1, d2, d3,d4);
+
+        // 變數資料交換
+        let n1=2;
+        let n2=4;
+        [n2,n1]=[n1,n2];
+        console.log(n1,n2);
+
+        // 物件的解構賦值
+        let obj={xx:3,yy:4,zz:5};
+
+        // 解構賦值#1
+        // let{x,y}=obj;
+
+        // 解構賦值#2
+        // 分開寫,須加小括號
+         let xx,yy,zz;
+        //  原本有預設值,就會顯示預設值
+         ({xx,yy,zz=6}=obj);
+
+        //  解構賦值#3
+        // 設定不同變數
+         let weX,newY,newZ;
+         ({xx:newX,yy:newY,zz:newZ}=obj);
+        console.log(xx,yy,zz);
+        console.log(newX,newY,newZ);
+
+        // 統整函式的物件參數
+        // 原函式
+        function add(x1,x2){
+            console.log(x1+x2);
+        }
+        add(3,4);
+
+        // 簡化,用物件來當函式參數
+        function add1(args){
+            console.log(args.x1+args.x2);
+        }
+        add1({x1:3,x2:4});
+
+        // 簡化,用賦值
+        function add2({x1,x2}){
+            console.log(x1+x2);
+        }
+        add2({x1:3,x2:4});
+    </script>
+</body>
+
+</html>

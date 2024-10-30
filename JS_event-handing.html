@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 事件處理</title>
+    <style>
+        .btn {
+            background-color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            color: #FFF;
+            border: 1px solid transparent;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    click => 滑鼠點擊
+    mouseover => 滑鼠移入
+    mouseout => 滑鼠移出
+    mousedown => 滑鼠按下
+    mouseup => 滑鼠放開 
+    this=>代表觸發事件的標籤
+    -->
+
+    <h3>事件處理的練習</h3>
+    <button class="btn" 
+    onmouseover="handleMouseover(this);"
+    onclick="handleClick(this);"
+    onmouseout="handleMouseout(this);">點我</button>
+    <button class="btn" 
+    onmouseover="handleMouseover(this);"
+    onclick="handleClick(this);"
+    onmouseout="handleMouseout(this);">點我2</button>
+
+    <script>
+        // 點擊改變顏色
+        function handleClick(elem) {
+            elem.style.backgroundColor = "red";
+            elem.innerHTML="點擊";
+        };
+
+        // 移入時改變顏色
+        function handleMouseover(elem){
+            elem.style.backgroundColor = "black";
+            elem.innerHTML="移入";
+        }
+
+        // 移出時改變顏色
+        function handleMouseout(elem){
+            elem.style.backgroundColor = "white";
+            elem.innerHTML="移出";
+            elem.style.color='black';
+            elem.style.border="1px solid black"
+        }
+    </script>
+</body>
+
+</html>

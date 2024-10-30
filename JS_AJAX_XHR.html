@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="getData();">連線取得資料</button>
+    <div id="result"></div>
+    <!-- 使用fetch函式 -->
+    <!-- fetch(網址).then(function(回應物件){console.log(回應物件);}); -->
+    <script>
+        function getData() {
+            // 利用fetch進行資料取得資料
+            fetch("https://cwpeng.github.io/live-records-samples/data/products.json").then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                // console.log(data)
+                // 取得資料,把資料呈現在畫面上
+                // 1.把標籤抓出來
+                let result=document.querySelector("#result");
+                // 2.使用for迴圈逐一抓取資料
+                // 5.避免重複出現,result設為空字串,;
+                result.innerHTML="";
+                for(let i=0;i<data.length;i++){
+                    // 3.宣告抓取資料變數
+                    let product=data[i];
+                    console.log(product.name);
+                    // 4.串接在畫面上
+                    result.innerHTML+="<div>"+product.name+","+product.price+","+product.description+"</div>";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_迴圈猜數字</title>
+</head>
+
+<body>
+
+    <script>
+        // 內定一個數字結果 => let bingoNum = 99
+        // 彈出輸入視窗，輸入數字
+        // 最多能夠猜3次
+        // 三次內答對，顯示結果如下
+        // 第1次：11
+        // 第2次：99
+        // 答對了
+        // --
+        // 三次內答錯，顯示結果如下
+        // 第1次：11
+        // 第2次：88
+        // 第3次：66
+        // 挑戰失敗
+
+        // 彈跳視窗重複3次 所以包在迴圈裡
+        // 先設一個迴圈
+
+        // 先宣告一個變數代表答案有無錯誤 先設定為錯誤
+        let a = "n"
+        for (let i = 1; i <= 3; i++) {
+            // prompt為字串,要轉成數值才可比較
+            let number = Number(prompt("請輸入數字"));
+            document.write(`第${i}次:${number}<br>`)
+            // 答對 就停止迴圈顯示結果
+            if (number == 99) {
+                document.write(`答對了`);
+                a = "y";
+                break; // 停止顯示結果
+                // 答錯 只有第三次要顯示挑戰失敗
+            }
+        }
+        if (a == "n") {
+            document.write(`答錯了`);
+        } 
+    </script>
+</body>
+
+</html>

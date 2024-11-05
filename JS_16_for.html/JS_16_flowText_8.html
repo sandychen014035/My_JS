@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_練習</title>
+</head>
+<body>
+    <script>
+        //請顯示1-100中，5的倍數值並加總
+        // 直到合計大於50就結束迴圈
+        // for
+        let total=0;
+        for(let i=1;i<=100;i++){
+            if(i%5==0){
+                total=total+i;
+                document.write(`i=${i},總和${total}<br>`)
+            }if(total>=50){
+                break;
+            }
+        }
+        document.write('<hr>');
+
+        // while
+        total=0;
+        let i=1;
+        while(i<=100){
+            // 先+1才能跑後續數字
+            i++;
+            if(i%5==0){
+                total=total+i;
+                document.write(`i=${i},總和${total}<br>`)
+            }if(total>=50){
+                break;
+            }
+        }
+        document.write('<hr>');
+
+        total=0;
+        let ii=1;
+        // 先設條件,總和小於50
+        while(total<50){
+            ii=ii+1;
+            // 只有5的倍數要叫總和
+            if(ii%5==0){
+                total=total+ii;
+                document.write(`i=${ii},總和${total}<br>`)
+            }
+        }
+        document.write('<hr>');
+
+        // do while 先執行在檢查
+        total=0;
+        let iii=1
+        do{
+            // 五的倍數才會執行加總合
+            if(iii%5==0){
+                total=total+iii
+                document.write(`i=${iii},總和${total}<br>`)
+            }
+            iii=iii+1;
+            // 
+        }while (total<50) ;
+        document.write('<hr>');
+    </script>
+</body>
+</html>

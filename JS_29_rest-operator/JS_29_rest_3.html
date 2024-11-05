@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_其餘參數</title>
+</head>
+
+<body>
+    <script>
+        // 其餘參數的另一寫法 => ...other
+        // other前面不用加this
+        // 建立物件
+        function Sdata(num, name, ...other) {
+            this.num = num;
+            this.name = name;
+            // other綁定對象,後續減少錯誤
+            this.other=other;
+            this.sayMy = function () {
+                document.write(`(${this.num})${name}同學,
+                
+                身高"${other[0]}"公分,體重"${other[1]}"公斤<br>`);
+            }
+        }
+        let sandy=new Sdata(1230,"陳豬豬",158,47);
+        let JF=new Sdata(1228,"陳海豹",172,80);
+        sandy.sayMy();
+        JF.sayMy();
+
+        // 加總體重與身高
+        let arr=[sandy,JF]
+        let w=0;
+        let h=0;
+        for(let i=0;i<arr.length;i++){
+            w=w+arr[i].other[1];
+            h=h+arr[i].other[0];
+        }
+        document.write(`陳豬豬跟陳海豹的身高加總${h}<br>`);
+        document.write(`陳豬豬跟陳海豹的體重加總${w}<br>`);
+
+
+    </script>
+</body>
+
+</html>

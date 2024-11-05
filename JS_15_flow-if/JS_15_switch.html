@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_switch</title>
+</head>
+
+<body>
+    <script>
+        // 設定一個輸入視窗,顯示星期幾
+        // trim()=>去除前後多餘的空白
+        // length=>資料的長度
+        // 1.按了取消null
+        // 2.為空白輸入
+        // 3.輸入非1-7
+
+
+        let Week = window.prompt("輸入星期幾?"); // prompt為字串
+        // 因為null值不支援trim(),所以要先做判斷,在使用trim()
+        // 直接在switch裡判斷null,程式不會執行
+        if(Week==null){
+            document.write("您按了取消");
+        }else{
+            switch (Week.trim()) { // 刪除空白,以免影響判斷
+            case "":
+                document.write("您未填寫內容");
+                break;
+            case "1": // prompt為字串
+                document.write("星期－");
+                break;
+            case "2":
+                document.write("星期二");
+                break;
+            case "3":
+                document.write("星期三");
+                break;
+            case "4":
+                document.write("星期四");
+                break;
+            case "5":
+                document.write("星期五");
+                break;
+            case "6":
+                document.write("星期六");
+                break;
+            case "7":
+                document.write("星期七");
+                break;
+            default:
+                document.write("輸入錯誤");
+        }
+}
+        
+    </script>
+</body>
+
+</html>

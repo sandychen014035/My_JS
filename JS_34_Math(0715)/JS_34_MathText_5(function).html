@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_大樂透</title>
+</head>
+<body>
+    <script>
+        // 建立視窗輸入號碼獲得大樂透
+        // 1. 大樂透 =>第一區1~49挑6個號碼+第二區1~49挑1個號碼
+        // 2. 威力彩 =>第一區1~38挑6個號碼+第二區1~8挑1個號碼
+        // 3. 今彩539 =>第一區1~39挑5個號碼
+        
+        // 判別樂透類型
+        // 視窗換行 \n
+        // prompt=>字串
+        let type=prompt(`請輸入號碼取得樂透 \n 1:大樂透,2:威力彩,3.今彩539`)
+        // 去除多餘空白
+        type=type.trim();
+
+        // 將選擇樂透顯示在螢幕上
+        if(type=="1"||type=="2"||type=="3"){
+            document.write(`您取得的為`)
+            if(type=="1"){document.write(` "大樂透" `)}
+            else if(type=="2"){document.write(` "威力彩" `)}
+            else if(type=="3"){document.write(` "今彩539" `)}
+            document.write(`的中獎號碼<br>`)
+        }else{document.write(`請輸入1/2/3數值`)}
+
+        // 樂透數值的函式
+        // 犯錯#1 random() 要加()
+        function l_number(max){
+            return Math.floor((Math.random()*max)+1)
+        }
+
+        // 設定一個樂透函式有多個變數
+        // (類型,號碼max,長度,特別max)
+        function formal(item,max1,count,max2){
+            // 樂透陣列
+            let arr=[];
+            // 樂透都從0開始
+            let i=0;
+            // 都先執行
+            do{
+                // 取得樂透號碼
+                // 建議改函式名
+                let number=l_number(max1);
+                // 將樂透號碼放到陣列上
+                if(arr.indexOf(number)==-1){
+                    arr.push(number);
+                    i++;
+                }
+            }while(i<count);
+            // 犯錯#4 預設值避免未定義
+            let numberS = null;
+            if(type=="1"||type=="2"){
+                numberS=l_number(max2);
+            }else{
+                numberS="沒有特別號"}
+            // 犯錯#3 多個回傳值要用{}包起來
+            return { arr,numberS }
+        }
+
+        // 犯錯5 解構formal()
+        let arr,numberS;
+        // 解構賦值
+        // let obj={x:3,y:4};
+        // let x,y;
+        // ({x,y}=obj); 加{}
+        if(type=="1"){
+            ({arr,numberS}=formal("1",49,6,49));
+        }else if(type=="2"){
+            ({arr,numberS}=formal("2",38,6,8));
+        }else if(type=="3"){
+            ({arr,numberS}=formal("3",39,5,0));
+        }
+
+        arr.sort((a,b)=>{return a-b});
+        document.write(`樂透陣列: ${arr}<br>`);
+        document.write(`樂透特別號: ${numberS}<br>`);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ex:
+        // 彈出輸入視窗 =>prompt()
+        // 輸入運算起始值=>1
+        // 輸入運算結束值=>10
+        // 算出奇數合=>25
+        // 算出偶數合=>30
+
+        let startNum=Number(prompt("輸入一個起始值"));
+        let endNum=Number(prompt("輸入一個起始值"));
+        evenTotal=0; // 偶數總和
+        singularTotal=0;  // 單數總和
+
+        // 要起始值<結束值才可以執行
+        // 遇到起始值>結束值時,要互換數值
+        // 在設定另一個變數exchange
+        
+        if(startNum>endNum){
+            let exchange=startNum;
+            startNum=endNum;
+            endNum=exchange;
+        }
+
+        for(let i=startNum;i<=endNum;i++){
+            if(i%2==0){
+                evenTotal=evenTotal+i
+            }else{
+                singularTotal=singularTotal+i
+            }
+        }
+        document.write(`${startNum}~${endNum}的偶數總和=>${evenTotal}<br>`);
+        document.write(`${startNum}~${endNum}的單數總和=>${singularTotal}`);
+
+    </script>
+</body>
+
+</html>

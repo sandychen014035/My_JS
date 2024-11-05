@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_變數,常數,串接方式練習</title>
+</head>
+
+<body>
+    <script>
+        // 計算bmi
+        // bmi=體重/身高的平方
+        // 取bmi為小數點第二位
+        // 變數.toFixed()
+
+        let weight = 48;
+        let height = 1.58;
+        let bmi = (weight / (height * height)).toFixed(2);
+        console.log(bmi); // 使用toFixed(2)為字串
+        console.log(`我的bmi為${bmi}`);
+
+        // 檢查BMI落在哪個區間並顯示結果
+        // 小於18.5過輕
+        // 18.5~24健康 *區間資料使用交集邏輯運算子&&(AND)
+        // 大於24過重
+        let bmiNum = "ab";
+        if (bmiNum < 18.5) {
+            console.log("體重過輕");
+        } else if (bmiNum >= 18.5 && bmiNum <= 24) {
+            console.log("體重正常");
+        } else if (bmiNum > 24) {
+            console.log("體重過重");
+        } else if (bmiNum != Number) {
+            console.log("非bmi數值");
+        }
+
+
+
+    </script>
+</body>
+
+</html>

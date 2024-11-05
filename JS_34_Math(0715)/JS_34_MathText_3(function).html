@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Math</title>
+</head>
+
+<body>
+    <script>
+        // 設定一個視窗,輸入數字獲得以下樂透號碼
+        // 1=>大樂透 2=>威力彩 3=>今彩539
+        // 1. 大樂透 =>第一區1~49挑6個號碼+第二區1~49挑1個號碼
+        // 2. 威力彩 =>第一區1~38挑6個號碼+第二區1~8挑1個號碼
+        // 3. 今彩539 =>第一區1~39挑5個號碼
+
+        // 宣告樂透類型變數 *視窗中"\n"換行
+        let lottoType = prompt(`輸入數字得到樂透的開獎數字 \n1=>大樂透 2=>威力彩 3=>今彩539`);
+        // 去除視窗輸入可能有多餘空白
+        lottoType = lottoType.trim();
+
+        // 先行判斷有無輸入錯誤
+        if (lottoType == "1" || lottoType == "2" || lottoType == "3") {
+            document.write(`你獲得 " ${lottoType}.`);
+            switch (lottoType) {
+                case "1":
+                    document.write(`大樂透 "`);
+                    break;
+                case "2":
+                    document.write(`威力彩 "`);
+                    break;
+                case "3":
+                    document.write(`今彩539 "`);
+                    break;
+                default:
+                    document.write(`錯誤`);
+            }
+            document.write(` 號碼如下<br>`);
+        } else {
+            alert(`您輸入非1~3數字,重新輸入`);
+        }
+
+        // 建立樂透取亂數函式
+        function lottoFormula(lottoType) {
+            if (lottoType == "1") {
+                // 直接回傳亂數值
+                return Math.floor((Math.random() * 49) + 1);
+            }else if (lottoType == "2") {
+                return Math.floor((Math.random() * 38) + 1);
+            }else if (lottoType == "3") {
+                return Math.floor((Math.random() * 39) + 1);
+            }
+        }
+        // 檢查是否成功
+        // 設定變數接收樂透回傳值
+        let lottoNumber=lottoFormula(lottoType);
+
+        // 建立樂透特別號函式
+        function lottoNumberS(lottoType) {
+            if (lottoType == "1") {
+                // 直接回傳亂數值
+                return Math.floor((Math.random() * 49) + 1);
+            }else if (lottoType == "2") {
+                return Math.floor((Math.random() * 8) + 1);
+            }else if (lottoType == "3") {
+                return "沒有特別號"
+            }
+        }
+        let NumberS=lottoNumberS(lottoType);
+        document.write(`特別號數值:${NumberS}<br>`)       
+
+        // 建立樂透陣列的長度
+        function lottoLength(lottoType){
+            if (lottoType == "1") {
+                // 直接回傳亂數值
+                return 6
+            }else if (lottoType == "2") {
+                return 6
+            }else if (lottoType == "3") {
+                return 5
+            }
+        }
+        let arrLength=lottoLength(lottoType);
+
+        // 建立樂透陣列變數
+        // 犯的錯誤#2 直接用lottoNumber 這樣數值不會改變
+        function lottoArr(){
+            // 建立空陣列存放數值
+            let arr=[];
+            // 產生該樂透的剩餘數值
+            // 陣列從0開始
+            let item=0;
+            // do while 不管如何都先執行
+            do{
+                // 陣列中沒有該數值,就加入
+                // 用亂數函式取得數值
+                let lottoNumber=lottoFormula(lottoType);
+                if(arr.indexOf(lottoNumber)==-1){
+                    arr.push(lottoNumber);
+                    item=item+1;
+                }
+            }while(item<arrLength)
+            // 犯的錯誤#1 沒有回傳值
+            return arr;
+        }
+        
+        // 設定變數接收樂透陣列
+        let lottoNumArr=lottoArr();
+
+        
+        // 樂透陣列遞增
+        lottoNumArr.sort((a,b)=>{return a-b});
+        // 樂透陣列加入特別號
+        lottoNumArr.push(NumberS);
+        document.write(`樂透陣列:${lottoNumArr}<br>`)
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

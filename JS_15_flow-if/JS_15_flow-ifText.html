@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_流程控制:判斷式 測試</title>
+</head>
+<body>
+    <script>
+        //使用輸入視窗prompt
+        //輸入分數
+        // 1. 檢查是否及格
+        // 2. 檢查是否為有效分數範圍
+        // 3. 檢查是否按了取消
+
+        // 宣告分數的變數
+        let score=window.prompt("輸入您的成績分數"); // prompt為字串
+        let numScore=Number(score); // 將字串轉變成數值才可檢查是否及格
+
+        // 進行判斷
+        // 檢查是否取消 null=>取消
+        if (score===null){
+            window.alert("分數不可取消");
+            // 檢查是否空白 空字串""
+        }else if(score==""){
+            window.alert("分數不可空白");
+            // 檢查是否有效區間
+            // 以下用轉變成數值numScore
+        }else if(numScore<0 || numScore>100){
+            window.alert("分數超過區間,須為0-100");
+        }else if(numScore<60){
+            window.alert("分數不及格");
+        }else if(numScore>60){
+            window.alert("分數及格");
+        }else{
+            // 以上條件均不成立
+            window.alert("分數非數值");
+        }
+    </script>
+</body>
+</html>

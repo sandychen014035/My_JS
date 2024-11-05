@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_object</title>
+</head>
+<body>
+    <script>
+        // 建立學生成績
+        // #1 物件樣板
+        // 學號.姓名.HTML成績.CSS成績.JS成績
+        function Score(number,name,s_HTML,s_CSS,s_JS){
+            this.number=number;
+            this.name=name;
+            this.s_HTML=s_HTML;
+            this.s_CSS=s_CSS;
+            this.s_JS=s_JS;
+            this.total=function(){
+                document.write(`(${number})${this.name}同學的成績分別為[ ${this.s_HTML},${this.s_CSS},${this.s_JS} ]<br>`);
+            }
+        }
+        // 使用物件樣板
+        let oneS=new Score("1230","陳豬豬",90,95,80);
+        let twoS=new Score("1228","陳海豹",85,80,70);
+        // 使用物件樣板的方式
+        oneS.total();
+        twoS.total();
+        // 計算各科總分
+        document.write(`<hr>`)
+        document.write(`HTML的總分${oneS.s_HTML+twoS.s_HTML}<br>`);
+        document.write(`CSS的總分${oneS.s_CSS+twoS.s_CSS}<br>`)
+        document.write(`JS的總分${oneS.s_JS+twoS.s_JS}<br>`)
+        document.write(`<hr>`)
+
+
+
+        // #2 陣列物件
+        // 建立陣列元素為物件
+        let arrObj=[oneS,twoS];
+        // document.write(`${arrObj}<br>`)
+        // 宣告成績變數,暫時為0
+        // 用for去抓成績
+        let htmlTotal=0;
+        let cssTotal=0;
+        let jsTotal=0;
+
+        for(let i=0;i<arrObj.length;i++){
+            htmlTotal= htmlTotal+arrObj[i].s_HTML;
+            cssTotal= cssTotal+arrObj[i].s_CSS;
+            jsTotal= jsTotal+arrObj[i].s_JS;
+        }
+        document.write(`HTML的總分${htmlTotal}<br>`);
+        document.write(`CSS的總分${cssTotal}<br>`)
+        document.write(`JS的總分${jsTotal}<br>`)
+
+
+
+
+    </script>
+</body>
+</html>

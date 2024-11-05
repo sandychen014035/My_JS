@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Math</title>
+</head>
+
+<body>
+    <script>
+        // 亂數產生大樂透號碼1~49(不重複) 6碼
+        // 特別號1個：1~49(可與之前重複)
+
+        // 宣告樂透號碼
+        let number;
+        // 宣告樂透陣列
+        let looto = [];
+        // 宣告陣列的位置
+        let item = 0;
+
+        do {
+            // 亂數Math.random
+            // 去除小數點Math.floor => 此時為字串
+            // 轉數值Number
+            number = Number(Math.floor((Math.random() * 49) + 1));
+            // 檢查陣列中有無重複,沒重複加入陣列
+            // 陣列有無重複includes
+            if (looto.includes(number)) {
+                continue;
+            }
+            looto.push(number);
+            item = item + 1;
+        } while (item < 6);
+
+        // 宣告樂透特別號
+        let numberS = Number(Math.floor((Math.random() * 49) + 1));
+        document.write(`樂透特別號碼:[ ${numberS} ]<br>`);
+        document.write(`原始樂透陣列:[ ${looto} ]<br>`);
+        // 陣列遞增排序
+        looto = looto.sort((a, b) => { return a - b })
+        document.write(`遞增樂透陣列:[ ${looto} ]<br>`);
+        // 將特別號加入樂透陣列
+        looto.push(numberS);
+        document.write(`遞增樂透陣列+特別號:[ ${looto} ]<br>`);
+
+
+        
+        document.write(`<hr>以下亂數用functionc函式<br>`);
+
+        // 將取亂數用function函式
+        function lootoFormula(A, B) {
+            return (Number(Math.floor((Math.random() * A) + B)));
+        };
+        // 檢查是否成功
+        // document.write(`${lootoFormula(49,1)}`);
+
+        // 宣告樂透陣列
+        let lootoB = [];
+        // 宣告樂透陣列的位置
+        let itemB = 0
+
+        do {
+            let numberB = lootoFormula(49, 1);
+            // 沒有重複的情況下,加入陣列,顯示為-1
+            // indexOf()
+            if (lootoB.indexOf(numberB) == -1) {
+                lootoB.push(numberB);
+                itemB = itemB + 1;
+            }
+        } while (itemB < 6);
+        let numberB_S = lootoFormula(49, 1);
+
+
+        document.write(`樂透特別號碼:[ ${numberB_S} ]<br>`);
+        document.write(`原始樂透陣列:[ ${lootoB} ]<br>`);
+        // 陣列遞增排序
+        lootoB = lootoB.sort((a, b) => { return a - b })
+        document.write(`遞增樂透陣列:[ ${lootoB} ]<br>`);
+        // 將特別號加入樂透陣列
+        lootoB.push(numberB_S);
+        document.write(`遞增樂透陣列+特別號:[ ${lootoB} ]<br>`);
+
+
+
+        document.write(`<hr>以下均為function<br>`);
+
+        function lootoArr() {
+            // 宣告樂透陣列
+            let lootoC = [];
+            // 宣告樂透陣列的位置
+            let itemB = 0
+
+            do {
+                let numberC = lootoFormula(49, 1);
+                // 沒有重複的情況下,加入陣列,顯示為-1
+                // indexOf()
+                if (lootoC.indexOf(numberC) == -1) {
+                    lootoC.push(numberC);
+                    itemB = itemB + 1;
+                }
+            } while (itemB < 6);
+            let numberC_S = lootoFormula(49, 1);
+            // 回傳樂透列與特別號
+            return { lootoC, numberC_S }
+            // **此時不會顯示數值,只是將資料回傳**
+        }
+        // 調用函式並取得結果
+        // 將回傳的物件存在result變數中
+        const result=lootoArr();
+
+        // 查看
+        console.log(`${result}`);
+        console.log(`原始樂透陣列: ${result.lootoC}`);
+        console.log(`樂透特別號: ${result.numberC_S}`);
+
+
+        // 解構賦值
+        let { lootoC, numberC_S } =result;
+
+        document.write(`樂透特別號碼:[ ${numberC_S} ]<br>`);
+        document.write(`原始樂透陣列:[ ${lootoC} ]<br>`);
+        // 陣列遞增排序
+        lootoC = lootoC.sort((a, b) => { return a - b })
+        document.write(`遞增樂透陣列:[ ${lootoC} ]<br>`);
+        // 將特別號加入樂透陣列
+        lootoB.push(numberC_S);
+        document.write(`遞增樂透陣列+特別號:[ ${lootoC} ]<br>`);
+
+
+
+    </script>
+</body>
+
+</html>

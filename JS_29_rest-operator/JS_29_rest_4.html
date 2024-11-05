@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_其實參數</title>
+</head>
+
+<body>
+    <script>
+        // 其餘參數
+        function Student(...stuData) {
+            this.stuData = stuData;
+            this.say=function(){
+                document.write(`${stuData[0]}同學,身高${stuData[1]},體重${stuData[2]}`)
+            }
+        }
+
+        let sandy=new Student("陳豬豬",158,47);
+        let JF=new Student("陳海豹",172,78);
+        sandy.say();
+        JF.say();
+    </script>
+</body>
+
+</html>

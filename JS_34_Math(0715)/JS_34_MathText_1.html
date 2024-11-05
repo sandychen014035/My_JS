@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_猜亂數</title>
+</head>
+
+<body>
+    <script>
+        // 猜數字遊戲
+        
+
+        // 設定亂數值1-100
+        // 將亂數*100(數值1-100)
+        let r=(Math.random())*100;
+        // 刪除小數點
+        r=Math.floor(r)
+        document.write(`亂數值:${r}<br>`)
+        document.write(`亂數值的資料型態:${typeof r}<br>`)
+
+        // 亂數值：60
+        // item :number 
+        // 第1次：50 => 太小了（提示：50-100）
+        // 第2次：90 => 太大了（提示：50-90）
+        // 第3次：80 => 太大了（提示：50-80）
+        // 第4次：55 => 太小了（提示：55-80）
+        // 第5次：60 => 猜對了
+
+        // 宣告變數
+        // 次數 最大 最小 分數
+        let item=0;
+        let max=100;
+        let min=0;
+
+        while(true){ //不管怎樣都會執行
+            item=item+1
+            let number=Number(prompt("請輸入一個數字"));
+            if(number>r){
+                max=number
+                alert(`第${item}次:${number}=>太大了(提示:${min}-${max})`);
+                document.write(`第${item}次:${number}=>太大了(提示:${min}-${max})<br>`);
+            }else if (number<r){
+                min=number
+                alert(`第${item}次:${number}=>太小了(提示:${min}-${max})`);
+                document.write(`第${item}次:${number}=>太小了(提示:${min}-${max})<br>`);
+            }else if(number==r){
+                alert(`第${item}次:${number}=>答對了`);
+                document.write(`第${item}次:${number}=>答對了<br>`);
+                break;
+            }else{
+                alert(`第${item}次:請輸入數字<br>`);
+            }
+        }
+    </script>
+</body>
+
+</html>

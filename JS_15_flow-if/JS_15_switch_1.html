@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_switch</title>
+</head>
+
+<body>
+    <script>
+        // 判斷血型
+        let bloodType = window.prompt("輸入您的血型");
+        // 先判斷是否為null,在刪去多於得空白trim()
+        // 是否為空白
+        if (bloodType == null) {
+            document.write("您按了取消");
+        } else {
+            bloodType = bloodType.trim();
+            if (bloodType == "") {
+                document.write("輸入空白");
+            } else if (bloodType == "A" || bloodType == "a") {
+                document.write("血型A型");
+            } else if (bloodType == "B" || bloodType == "b") {
+                document.write("血型B型");
+            } else if (bloodType == "O" || bloodType == "o") {
+                document.write("血型O型");
+            } else if (bloodType == "AB" || bloodType == "ab" || bloodType == "Ab" || bloodType == "aB") {
+                document.write("血型AB型");
+            } else {
+                document.write("血型輸入錯誤");
+            }
+        }
+        document.write("<br>");
+
+        // 再刪除空白時,直接把英文統一均大寫或是均小寫
+        // toUpperCase() 均為大寫 
+        // toLowerCase() 均為小寫
+        if (bloodType == null) {
+            document.write("您按了取消");
+        } else {
+            bloodType = bloodType.trim().toUpperCase();
+            if (bloodType == "") {
+                document.write("輸入空白");
+            } else if (bloodType == "A" ) {
+                document.write("血型A型");
+            } else if (bloodType == "B" ) {
+                document.write("血型B型");
+            } else if (bloodType == "O" ) {
+                document.write("血型O型");
+            } else if (bloodType == "AB" ) {
+                document.write("血型AB型");
+            } else {
+                document.write("血型輸入錯誤");
+            }
+        }
+        document.write("<br>");
+
+        // 使用switch
+        if(bloodType==null){
+            document.write("您按了取消");
+        }else{
+            switch(bloodType.trim().toLowerCase()){
+                case "a":
+                document.write("血型A型");
+                break;
+                case "b":
+                document.write("血型B型");
+                break;
+                case "o":
+                document.write("血型O型");
+                break;
+                case "ab":
+                document.write("血型AB型");
+                break;
+                default:
+                document.write("血型輸入錯誤");
+            }
+        }
+    </script>
+</body>
+
+</html>

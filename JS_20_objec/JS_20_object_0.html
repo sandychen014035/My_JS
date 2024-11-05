@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Object</title>
+</head>
+<body>
+    <script>
+        // 物件Object - 用來封裝其他資料的容器
+        // 物件的使用流程
+        // #1 建立物件
+        // #2 宣告物件變數
+        new Object();
+        let obj=new Object();
+        // #3 建立物件成員
+        //    屬性成員:物件.成員名稱=資料
+        obj.x=3;
+        obj.y=4;
+        //    方法成員:物件.函式名稱
+        obj.xyz=function(){
+            document.write(`${this.x},${this.y},`)
+        }
+
+
+        document.write(`${obj.x}<br>`)
+        obj.xyz();
+    </script>
+</body>
+</html>

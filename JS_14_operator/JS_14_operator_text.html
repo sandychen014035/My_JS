@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_運算符號</title>
+</head>
+
+<body>
+    <script>
+        // 確認帳密有無錯誤
+        let accountNum = "tp6u6g";
+        let passwordNum = "sandy01403"
+
+        if (accountNum === "tp6u6g0" && passwordNum === "sandy014035") {
+            console.log("帳密正確,登入成功");
+        } else if (accountNum !== "tp6u6g0" && passwordNum === "sandy014035") {
+            console.log("帳號錯誤,登入失敗");
+        } else if (accountNum === "tp6u6g0" && passwordNum !== "sandy014035") {
+            console.log("密碼錯誤,登入失敗");
+        }else if (accountNum !== "tp6u6g0" && passwordNum !== "sandy014035") {
+            console.log("帳密錯誤,登入失敗");}
+
+        // 快縮短的寫法
+            if (accountNum === "tp6u6g0" && passwordNum === "sandy014035") {
+            console.log("帳密正確,登入成功");
+        } else if (accountNum !== "tp6u6g0" && passwordNum !== "sandy014035") {
+            console.log("帳密錯誤,登入失敗");
+            // 其中一個帳號或密碼錯誤
+            // 判斷內容 ? 符合內容顯示 : 否則顯示
+        }else{accountNum!==tp6u6g0 ?  "帳號錯誤,登入失敗" : "密碼錯誤,登入失敗";}
+
+
+            
+    </script>
+</body>
+
+</html>

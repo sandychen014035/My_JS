@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 迴圈</title>
+</head>
+<body>
+    <script>
+        // 檢視數字10-15
+        let total=0;
+        document.write("以下是for寫法<br>");
+        for(let i=10;i<=15;i++){
+            total=total+i;
+            document.write(i+",");
+        }
+
+        document.write("<br>");
+        document.write("總和"+total);
+        document.write("<br><br>");
+
+        document.write("以下是while寫法<br>");
+        let totalB=0;
+        let B = 10;
+        while(B<=15){
+            totalB=totalB+B;
+            document.write(B+",");
+            B++;
+        }
+        document.write("<br>");
+        document.write("總和"+totalB);
+
+        
+
+    </script>
+</body>
+</html>

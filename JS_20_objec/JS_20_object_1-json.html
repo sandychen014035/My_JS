@@ -25,15 +25,36 @@
 
 
         // 使用JSON建立物件
+        // #1 建立物件
         let man1 = {
+            // #2 物件屬性
+            //    屬性名稱:屬性值,
             age: 15,
             name: "姍姍",
+            // #3 物件方法
+            //    方法名稱:function(){}
             talk: function () {
                 // 物件的方法中,使用this,代表物件本身
                 console.log("Hello,我是", this.name, "年齡", this.age);
             },
         };
-        console.log(man1);
+        console.log(man1); // 顯示物件
+
+        // 使用物件=>物件.屬性名稱
+        // 　　　　=>物件["屬性名稱"]
+        console.log(man1.age); // 顯示15歲
+        console.log(man1["name"]); // 顯示姍姍
+        man1.talk();
+        
+        // 修改物件中屬性名稱的屬性值
+        man1.age=10;
+        console.log("修改後"+man1.age); // 顯示10歲
+
+        // 刪除物件中屬性名稱=>delete 物件.屬性名稱
+        delete man1.age;
+        console.log("刪除後"+man1.age); // 顯示undefined
+
+
     </script>
 </body>
 

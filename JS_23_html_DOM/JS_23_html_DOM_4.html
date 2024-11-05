@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #yes{
+            color:red;
+        }
+        #no{
+            color:blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        請選擇飲料
+        <input type="checkbox" name="drinks" id="" value="紅茶">紅茶
+        <input type="checkbox" name="drinks" id="" value="奶茶">奶茶
+        <input type="checkbox" name="drinks" id="" value="綠茶">綠茶
+        <input type="checkbox" name="drinks" id="" value="奶綠">奶綠
+        <input type="button" value="送出" id="btn">
+    </form>
+
+    <div id="showData">
+        <!-- 
+        <div id="yes">被選取
+            <span></span>
+            <span></span>
+        </div>
+        <div id="no">沒選取
+            <span></span>
+            <span></span>
+        </div> 
+        -->
+    </div>
+    <script>
+        // 宣告變數
+        let btn = document.querySelector("#btn");
+        let drinks = document.getElementsByName("drinks");
+
+        // 監聽
+        btn.addEventListener('click', function () {
+            // 宣告陣列存放
+            let yesarr = [];
+            let noarr = [];
+            // 逐一抓取
+            for (let i = 0; i < drinks.length; i++) {
+                // 逐一檢查是否被勾選=>checked
+                if (drinks[i].checked) {
+                    yesarr.push(drinks[i].value);
+                } else {
+                    noarr.push(drinks[i].value);
+                }
+            }
+            console.log(`被選取:${yesarr}`);
+            console.log(`沒選取:${noarr}`);
+
+            // 取得顯示資料的位置
+            let showData = document.querySelector("#showData");
+            // 存放勾選項目的變數
+            let yesdrinks = '';
+            yesdrinks = `<div id="yes" >被勾選的飲料:`;
+            for (let i = 0; i < yesarr.length; i++) {
+                yesdrinks = `${yesdrinks}<span>${yesarr[i]},</span>`;
+            }
+            yesdrinks = `${yesdrinks}</div>`;
+            // 存放未勾選項目變數
+            let nodrinks='';
+            nodrinks=`<div id="no" >未勾選的飲料:`;
+            for(let i=0;i<noarr.length;i++){
+                nodrinks=`${nodrinks}<span>${noarr[i]},</span>`;
+            }
+            nodrinks=`${nodrinks}</div>`;
+            // 兩個串起來
+            showData.innerHTML=yesdrinks+nodrinks;
+        })
+
+        // textContent=>輸出值只有文字
+        // innetHTML=>輸出值有HTML標籤
+
+    </script>
+</body>
+
+</html>

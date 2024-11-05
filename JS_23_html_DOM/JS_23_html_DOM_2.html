@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 下拉式清單 -->
+     <form action="">
+        <!-- label for會對應下方id -->
+        <label for="city">請選擇縣市:</label>
+        <select name="" id="city">
+            <option value="">請選擇</option>
+            <option value="台北市">台北市</option>
+            <option value="新北市">新北市</option>
+            <option value="桃園市">桃園市</option>
+            <option value="台中市">台中市</option>
+            <option value="台南市">台南市</option>
+            <option value="高雄市">高雄市</option>
+        </select>
+        <input type="button" id="btn" value="送出">
+     </form>
+
+     <script>
+        // 建立一個存放選取結果的變數
+        let result='';
+        // 建立按鈕變數
+        let btn=document.querySelector("#btn");
+        // 監聽按鈕是否左鍵一下
+        btn.addEventListener("click",function(){
+            // 取得下拉式方塊
+            let city=document.querySelector("#city");
+            // 逐一是否被選取 => selected
+        for(let i=0;i<city.length;i++){
+            if(i==0){
+                result="請重新選擇"
+            }else if(city[i].selected){
+                result=city[i].value;
+                // 只能單選,選到就中斷
+                break;
+            }
+        }
+        // 錯誤#1 注意位置,不然值會跑掉
+        console.log("縣市:"+result);
+        });
+     </script>
+</body>
+</html>

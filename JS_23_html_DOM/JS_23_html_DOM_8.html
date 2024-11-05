@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="textbox">
+        <input type="button" value="加入" id="btnAdd">
+    </form>
+    <ul>
+        <li>html<button class="delete">刪除</button></li>
+    </ul>
+    <script>
+        // 按下刪除按鈕,整行消失
+        // 用display:none
+
+
+        // 將輸入文字加入在ul裡面
+        // #1 宣告按鈕變數
+        let btnAdd = document.querySelector("#btnAdd");
+        // #2 監聽按鈕
+        btnAdd.addEventListener("click", () => {
+            // #2-1 宣告文字框的文字變數
+            let textbox = document.querySelector("#textbox");
+            // 如果為空值,則不加入
+            if (textbox.value.trim() === "") {
+                alert("請輸入文字");
+                return; // 如果輸入為空值，直接退出函數
+            }
+            // #2-2 取得文字框的文字需要.value
+            // console.log(textbox.value);
+            // #2-3 新增li節點
+            let newli = document.createElement("li");
+            // #2-4 新增文字變數
+            let newTextbox = document.createTextNode(textbox.value)
+            // #2-5 將newli跟textbox串起來
+            newli.appendChild(newTextbox);
+            // #2-6 新增button節點
+            let newButton = document.createElement("button");
+            // #2-6-1 setAttribute=>新增id或是class
+            newButton.setAttribute("class", "delete");
+            // #2-7 新增button的文字
+            let buttonText = document.createTextNode("刪除");
+            // #2-8 button跟文字串接
+            newButton.appendChild(buttonText);
+            // console.log(buttonText);
+            // #2-9 newli跟button串接
+            newli.appendChild(newButton);
+            // #2-10 newli跟ul串接
+            let ul = document.querySelector("ul");
+            ul.appendChild(newli);
+            // #2-11 加入後清空文字框
+            textbox.value = '';
+
+            // 按下刪除該行功能
+            // 不能在外面執行,要與新增時同時賦予此功能
+            // #1 抓取deleteBtn宣告變數
+            //    不能用querySelector=>只會抓取第一個,無法形成陣列
+            let deleteBtn = document.getElementsByClassName("delete");
+            // #2 逐一抓取並檢查
+            for (let i = 0; i < deleteBtn.length; i++) {
+                // #3 第[i]被點擊時
+                deleteBtn[i].onclick = function () {
+                    // 要修改[i]時要抓取到[i]父層
+                    let parent = this.parentNode;
+                    // 修改css
+                    parent.style.display = "none";
+                }
+            }
+        })
+
+        // 按下btnDelete刪除
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_陣列</title>
+</head>
+
+<body>
+    <script>
+        let arrA = [1, 2, 3, 4, 5, 6, 7]
+
+        // 陣列只顯示奇數
+        // 用for再用if判斷
+        for (let A = 0; A <= arrA.length; A++) {
+            if (arrA[A] % 2 == 1) {
+                document.write(`${arrA[A]}<br>`);
+            }
+        }
+
+        // 陣列中只保留奇數
+        // 宣告新的陣列來改變arrA
+        // 新陣列不會再改變,用const
+        // filter();=>篩選陣列
+        const arrB = arrA.filter(function (n) {
+            // 判斷是否為奇數
+            if (n % 2 == 1) {
+                // 奇數保留
+                return true;
+            }
+            // 偶數錯誤刪除 ,可省略
+            return false;
+        });
+
+        // 用箭頭函式
+        const arrC = arrA.filter((n) => {
+            if (n % 2 == 1) {
+                return true;
+            }
+        });
+
+        // 用簡化箭頭函式
+        const arrD = arrA.filter((n) => {
+            // n%2有餘數才會符合
+            return n % 2 != 0;
+        })
+        document.write(`篩選後的新陣列arrB:[ ${arrB} ]<br>`)
+        document.write(`篩選後的新陣列arrC:[ ${arrC} ]<br>`)
+        // typeof物件跟陣列都顯示object
+        document.write(`篩選後的新陣列arrB型態:[ ${typeof arrB} ,${typeof arrC}]<br>`)
+
+    </script>
+</body>
+
+</html>

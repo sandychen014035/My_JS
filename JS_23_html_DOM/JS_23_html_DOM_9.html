@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="textbox">
+        <input type="button" value="加入" id="btnAdd">
+    </form>
+    <ul>
+        <li>html<button>刪除</button></li>
+    </ul>
+    <script>
+        // createElement("html標籤")=>新增新的html標籤
+        // .appendChild()=>加入變數
+        // .createTextNode();=>文字節點,可用於串接html
+
+        // 輸入文字框按下加入後顯示在下方
+        // 按下刪除後該行刪除
+
+        // 抓取並宣告btnAdd的變數
+        let btnAdd = document.querySelector("#btnAdd");
+        // 監聽btnAdd
+        btnAdd.addEventListener("click", () => {
+            // 抓取並宣告取得的文字
+            let textbox = document.querySelector("#textbox");
+            // 犯錯#1  新增文字變數
+            let newtextbox = document.createTextNode(textbox.value);
+            // 加入並宣告新li
+            let newli = document.createElement("li");
+            // 新li跟文字串起來
+            newli.appendChild(newtextbox);
+            console.log(newli);
+
+            // 新增button
+            let deleteBtn = document.createElement("button");
+            // 新增button的文字
+            let deleteText = document.createTextNode("刪除");
+            // button跟刪除串起來
+            deleteBtn.appendChild(deleteText);
+            // li跟button串起來
+            newli.append(deleteBtn)
+            console.log(newli)
+
+            // 串在ul裡
+            let ul = document.querySelector("ul");
+            ul.appendChild(newli);
+
+            // 針對刪除按鈕指令
+            // 抓取並宣告刪除按鈕
+            let deleteBtnB = document.getElementsByTagName("button");
+            // 逐一檢查
+            for (let i = 0; i < deleteBtnB.length; i++) {
+                // 有被點選時
+                deleteBtnB[i].onclick = function () {
+                    // 刪除該行
+                    // 要抓到刪除該行的父層才可刪除
+                    let parent=deleteBtnB[i].parentElement;
+                    let ulnew=parent.parentElement;
+                    ulnew.removeChild(parent);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

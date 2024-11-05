@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_陣列</title>
+</head>
+<body>
+    <script>
+        // map()=>將陣列中的值指定給函式回傳結果
+        // 將下面陣列數值*2
+        let arrA=[1,2,4,6,8,10,]
+        // for
+        // 宣告新陣列
+        let arrAA=''; // 將arrAA定義成字串 而非數值 
+        for(let i=0;i<arrA.length;i++){
+            arrAA=arrAA+(arrA[i]*2)+",";
+        }
+        document.write(`用for將原陣列值*2=>${arrAA}<hr>`)
+
+        // map()
+        let arrBB=arrA.map((n)=>{
+            // 把值回傳給新陣列
+            return n*2;
+        });
+        document.write(`用map()將原陣列值*2=>${arrBB}<hr>`)
+
+        
+        // 用map()找出奇數
+        let arrCC=arrA.map((n)=>{
+            if(n%2==1){
+                return n;
+            }
+        })
+        document.write(`用map()將原陣列奇數=>${arrCC}<hr>`)
+
+    </script>
+</body>
+</html>

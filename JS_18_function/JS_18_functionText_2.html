@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 函式</title>
+</head>
+<body>
+    <script>
+        // 用輸入視窗輸入2個數字與四則運算
+
+        // 先設定一個四則運算函式
+        // function formula(oneNum,twoNum,symbol){
+        //     // 用symbol判斷運算
+        //     switch(symbol){
+        //         case "+":
+        //             document.write(`${oneNum}+${twoNum}=${oneNum+twoNum}`);
+        //             break;
+        //             case "-":
+        //             document.write(`${oneNum}-${twoNum}=${oneNum-twoNum}`);
+        //             break;
+        //             case "*":
+        //             document.write(`${oneNum}*${twoNum}=${oneNum*twoNum}`);
+        //             break;
+        //             case "/":
+        //             document.write(`${oneNum}/${twoNum}=${(oneNum%twoNum).toFixed(2)}`);
+        //             break;
+        //             default:
+        //             document.write('輸入的運算符號不存在<br>')
+        //     }
+        // }
+
+        // 將四則運算縮短
+        function formula(oneNum,twoNum,symbol){
+            // 共同處
+            document.write(`${oneNum}${symbol}${twoNum}=`);
+            switch(symbol){
+                case "+":
+                document.write(oneNum+twoNum);
+                break;
+                case "-":
+                document.write(oneNum-twoNum);
+                break;
+                case "*":
+                document.write(oneNum*twoNum);
+                break;
+                case "/":
+                document.write((oneNum/twoNum).toFixed(2));
+                break;
+                default:
+                    document.write('輸入的運算符號不存在<br>')
+            }
+            document.write(`<br>`);
+        }
+
+        // 測試公式
+        formula(8,2,"+");
+        formula(8,2,"-");
+        formula(8,2,"*");
+        formula(8,2,"/");
+
+        // 設定三個彈跳視窗輸入數字與符號
+        oneNum=prompt("輸入一個數字");
+        symbol=prompt("輸入一個四則運算符號( + - * / )");
+        twoNum=prompt("輸入一個數字");
+
+        // 開始檢查
+        // 是否取消
+        if(oneNum==null||symbol==null||twoNum==null){
+            document.write("不可按取消,請重新輸入");
+        // 是否空白
+        }else if(oneNum==""||symbol==""||twoNum==""){
+            document.write("輸入不可空白,請重新輸入");
+        // 是否非數值
+        }else if(isNaN(oneNum)||isNaN(twoNum)){
+            document.write("輸入非數值,請重新輸入");
+        // 排除以上問題,將空白刪除與轉變數值
+        }else{
+            oneNum=Number(oneNum.trim());
+            twoNum=Number(twoNum.trim());
+            symbol=symbol.trim();
+        // 呼叫函式
+            formula(oneNum,twoNum,symbol);
+        }
+    </script>
+</body>
+</html>

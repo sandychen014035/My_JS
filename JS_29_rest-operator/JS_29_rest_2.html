@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_其餘參數</title>
+</head>
+<body>
+    <script>
+        // 當呼叫函式的[參數值個數]與[參數個數]不一定相同時
+        // 可以使用[其餘參數]寫法
+        // => ... =>參數資料會形成一個陣列
+
+        // 原函式
+        // 為了讓函式不會因變數不足而導致total=NAN
+        // 所以先設變數為0
+        function add(n1=0,n2=0,n3=0,n4=0){
+            // 宣告總和
+            let total=n1+n2+n3+n4;
+            return total;
+        }
+        document.write(`${add()}<br>`);
+        document.write(`${add(1,2)}<br>`);
+        document.write(`${add(1,2,3,4)}<br>`);
+        document.write(`<hr>`)
+
+        // 以下是其餘參數...
+
+        function addB(...number){
+            let totalB=0
+            // 參數資料會形成一個陣列
+            console.log(number);
+            // 加法 用for迴圈
+            for(let i=0;i<number.length;i++){
+                totalB=totalB+number[i];
+            }
+            return totalB
+        }
+        document.write(`${addB()}<br>`);
+        document.write(`${addB(1,2)}<br>`);
+        document.write(`${addB(1,2,3,4)}<br>`);
+        document.write(`<hr>`)
+
+        function addC(...number){
+            let totalC=0
+            // 加法 用for of
+            // 宣告num來自於number
+            for(let num of number){
+                totalC=totalC+num;
+            }
+            return totalC;
+        }
+        document.write(`${addC()}<br>`);
+        document.write(`${addC(1,2)}<br>`);
+        document.write(`${addC(1,2,3,4)}<br>`);
+        document.write(`<hr>`)
+
+    </script>
+</body>
+</html>

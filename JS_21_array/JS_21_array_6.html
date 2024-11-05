@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_陣列</title>
+</head>
+<body>
+    <script>
+        // 顯示陣列中所有值
+        let arr = [1, 2, '3', 4, 5, '12345'];
+
+        // for
+        for(let i=0;i<arr.length;i++){
+            document.write(`${arr[i]},`);
+        }
+        document.write(`<hr>`);
+        
+        // map
+        let arrA=arr.map((n)=>{
+            return n
+        })
+        document.write(`${arrA}<hr>`);
+
+        // for of
+        // for(let 變數名稱 of 陣列名稱){}
+        // 把陣列名稱的個別值丟給變數名稱
+        for(let n of arr){
+            document.write(`${n},`);
+        }
+        document.write(`<hr>`);
+
+        // forEach 最快速的方法
+        // 陣列名稱.forEach()
+        arr.forEach((n)=>{
+            document.write(`${n},`);
+        })
+        document.write(`<hr>`);
+
+    </script>
+</body>
+</html>

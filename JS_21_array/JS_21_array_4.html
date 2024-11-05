@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_陣列</title>
+</head>
+<body>
+    <script>
+        let arrA=[0,40,80,120,160,200];
+        // 找出陣列100以上的數值
+        // for
+        for(let i=0;i<=arrA.length;i++){
+            if(arrA[i]>100){
+                document.write(arrA[i]+",");
+            }
+        }
+        document.write("<hr>");
+
+        // while
+        // 起始值在外面
+        let i=0;
+        while(i<=arrA.length){
+            if(arrA[i]>100){
+                document.write(arrA[i]+",");
+            }
+            i++;
+        }
+        document.write("<hr>");
+
+        // do while
+        // 起始值在外面
+        i=0;
+        do{ 
+            if(arrA[i]>100){
+                document.write(arrA[i]+",");
+            }
+            i++;
+        }while(i<=arrA.length);
+        document.write("<hr>");
+
+        // filter
+        let arrB=arrA.filter((n)=>{
+            // 只要回傳n>100的數值
+            return n>100;
+        })
+        document.write(arrB);
+
+    </script>
+</body>
+</html>

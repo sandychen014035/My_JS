@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_object模組化</title>
+</head>
+<body>
+    <script>
+        // 不同資訊共用一個物件
+        // 物件模組化=>物件樣板(字首大寫)
+        // 用function
+        function Mobile(brand,color,size){
+            this.brand=brand;
+            this.color=color;
+            this.size=size;
+            this.showMsg=function(){
+                document.write(`品牌:${this.brand},顏色:${this.color},尺寸:${this.size},<br>`)
+            }
+        }
+        let m1=new Mobile("iphone","black","13pro");
+        m1.showMsg();
+        let m2=new Mobile("三星","white","12pro");
+        m2.showMsg();
+    </script>
+</body>
+</html>

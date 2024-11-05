@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <!-- 文字輸入框 -->
+        <input type="text" name="" id="textbox">
+        <input type="button" value="送出" id="btn">
+    </form>
+    <ul>
+        <li>HTML</li>
+        <!-- <li></li> -->
+    </ul>
+
+    <script>
+        // document.createElement("") 建立HTML新標籤
+        // document.createTextNode("") 建立HTML文字
+        // 被加入變數.appendChild(加入變數) 串接
+
+        // 將textbox輸入文字加入li裡面
+
+        let btn=document.querySelector("#btn");
+        // 監聽
+        btn.addEventListener("click",function(){
+            // 取得文字框的內容
+            // 顯示textBox的文字要用value
+            let textbox=document.querySelector("#textbox");
+
+            // 加入<ul>中
+            // #1 加入<li><li> =>宣告li新變數
+            let newLi = document.createElement("li");
+            // #2 加入文字節點 =>宣告text新變數
+            let newText=document.createTextNode(textbox.value);
+            // #3 將文字與li串接
+            newLi.appendChild(newText);
+            // #4 宣告<ul>
+            let ul=document.querySelector("ul");
+            // #5 將newLi與ul串接
+            ul.appendChild(newLi);
+        });
+        
+    </script>
+</body>
+</html>

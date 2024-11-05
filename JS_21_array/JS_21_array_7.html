@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_陣列</title>
+</head>
+<body>
+    <script>
+        // 只顯示陣列中的字串值
+        let arr = [1, 2, '3', 4, 5, '12345'];
+
+        // for
+        for(let i=0;i<arr.length;i++){
+            // 用if判斷是否字串
+            // 判斷資料型態=>typeof 變數
+            if(typeof arr[i]=="string"){
+                document.write(`${arr[i]} , `);
+            }
+        }
+        document.write(`<hr>`);
+
+        // map
+        let arrA=arr.map((n)=>{
+            if(typeof n =="string"){
+                document.write(`${n} , `);
+            }
+        });
+        document.write(`<hr>`);
+
+        // for of
+        for (let n of arr){
+            if(typeof n=="string"){
+                document.write(`${n} , `);
+            }
+        }
+        document.write(`<hr>`);
+
+        // forEach
+        // 陣列名稱.forEach()
+        arr.forEach(n=>{
+            if(typeof n=="string"){
+                document.write(`${n} , `);
+            }
+        });
+        document.write(`<hr>`);
+        
+    </script>
+</body>
+</html>

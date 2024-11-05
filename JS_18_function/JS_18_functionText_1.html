@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_function</title>
+</head>
+
+<body>
+    <script>
+        // 一個可以進行四則運段的函式
+        function calc(a, b, c) {
+            if (c == "+") {
+                document.write(`${a}+${b}=${a + b}<br>`);
+            } else if (c == "-") {
+                document.write(`${a}-${b}=${a - b}<br>`);
+            } else if (c == "*") {
+                document.write(`${a}*${b}=${a * b}<br>`);
+            } else if (c == "/") {
+                document.write(`${a}/${b}=${a % b}<br>`);
+            } else {
+                document.write(`輸入非運算符號<br>`);
+            }
+        }
+        calc(8, 8, "+");
+        calc(8, 8, "-");
+        calc(8, 8, "*");
+        calc(8, 8, "/");
+
+        // 用輸入視窗分別輸入數字跟運符號,做數學計算
+        // 遇到的狀況
+        // #1輸入非數值
+        //   不可用!== NaN來比較,正確用法isNaN(變數)
+        // #2輸入空直值
+
+        let oneNum = Number(prompt("輸入一個數字").trim());
+        let symbol = prompt("輸入+,-,*,/".trim());
+        let twoNum = Number(prompt("輸入一個數字").trim());
+
+        if (oneNum == null || twoNum == null || symbol == null) {
+            document.write("輸入不可取消,請重新輸入")
+        }else if (oneNum == "" || twoNum == "" || symbol == "") {
+            document.write("輸入不可空白,請重新輸入")
+        } else if (isNaN(oneNum) || isNaN(twoNum)) {
+            document.write("輸入不可非數值,請重新輸入");
+        } else {
+            // 下面是錯誤的,.trim()在數值的情況下無法使用,要再轉變成數值前刪除空白
+            // oneNum = oneNum.trim();
+            // twoNum = twoNum.trim();
+            // symbol = symbol.trim();
+            switch (symbol) {
+                case "+":
+                    document.write(`${oneNum}+${twoNum}=${oneNum + twoNum}`);
+                    break;
+                case "-":
+                    document.write(`${oneNum}-${twoNum}=${oneNum - twoNum}`);
+                    break;
+                case "*":
+                    document.write(`${oneNum}*${twoNum}=${oneNum * twoNum}`);
+                    break;
+                case "/":
+                    document.write(`${oneNum}/${twoNum}=${oneNum % twoNum}`);
+                    break;
+                default:
+                    document.write(`輸入四則運算符號`);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Math</title>
+</head>
+
+<body>
+    <script>
+        // 亂數產生大樂透號碼1~49(不重複) 6碼
+        // 特別號1個：1~49(可與之前重複)
+
+        // 宣告樂透號碼
+        // 亂數
+        let number;
+        // 樂透陣列
+        let arr = [];
+
+        let item = 0;
+        // 陣列6個值 [0,1,2,3,4,5]
+        while (arr.length < 6) {
+            item = item++;
+            // 原本Math.random() * 50 0~49
+            number = Math.floor((Math.random() * 49) + 1);
+            // includes()=>尋找亂數中存不存在
+            if (arr.includes(number)) {
+                // 有相同亂數了,continue=>重新
+                continue;
+            }
+            // 加入樂透陣列中
+            arr.push(number);
+        };
+        // 特別號,可重複,特別拉出來
+        let numberS=Math.floor((Math.random() * 49) + 1);
+        // 將特別號放入樂透陣列中
+        arr.push(numberS)
+
+        document.write(`樂透特別號:${numberS}<br>`);
+        document.write(`樂透陣列:${arr}<br>`);
+        // 將陣列遞增排序
+        arr=arr.sort((a,b)=>{return a-b});
+        document.write(`樂透遞增:${arr}`);
+
+    </script>
+</body>
+
+</html>

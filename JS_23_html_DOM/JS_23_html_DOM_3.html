@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 下拉式方塊 -->
+    <form action="">
+        <label for="city">請選擇縣市</label>
+        <select name="" id="city">
+            <option value="">請選擇</option>
+            <!-- 以下用JS插入 -->
+            <script>
+                // 插入剩下的選單
+                // 建立一個陣列,輸入選項
+                let arrCity=["台北","新北","桃園","台中","台南","高雄"];
+                // 用for迴圈
+                for(let i=0;i<arrCity.length;i++){
+                    // 在畫面中插入
+                    document.write(`<option value="${arrCity[i]}">${arrCity[i]}</option>`)
+                }
+            </script>
+        </select>
+        <input type="button" id="btn" value="送出">
+    </form>
+    <script>
+        // 宣告抓取變數
+        let btn=document.querySelector("#btn");
+        let city=document.querySelector("#city");
+        btn.addEventListener("click",function(){
+            // 宣告變數存放結果
+            let result='';
+            for(let i=0;i<city.length;i++){
+                if(i==0){
+                    result="請選取"
+                }else if(city[i].selected){
+                    result=city[i].value;
+                }
+            }
+            console.log("縣市:"+result);
+        })
+    </script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // #1顯示1-10的偶數,用,號隔開,最後一個不顯示
+        for (let c = 1; c <= 10; c++) {
+            if (c % 2 === 0) {
+                if (c === 10) {
+                    document.write(c);
+                } else {
+                    document.write(c + ",");
+                }
+            }
+        }
+        document.write(`<br>`)
+
+        // #2顯示1-10中3跟5的倍數
+        // 宣告存放3與5的變數
+        let x3 = "";
+        let x5 = "";
+        // 3跟5的倍數總和
+        let total3=0;
+        let total5=0;
+        for (let i = 1; i <= 10; i++) {
+            if (i % 3 === 0) {
+                x3 = x3 + i + ',';
+                total3=total3+i;
+            } else if (i % 5 === 0) {
+                x5 = x5 + i + ',';
+                total5=total5+i;
+            }
+        }
+        document.write(`1-10中的3的倍數:${x3}<br>`);
+        document.write(`1-10中的3的倍數總和:${total3}<br>`);
+        document.write(`1-10中的5的倍數:${x5}<br>`);
+        document.write(`1-10中的5的倍數總和:${total5}<br>`);
+
+
+    </script>
+</body>
+
+</html>

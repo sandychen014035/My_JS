@@ -11,11 +11,11 @@
     <script>
         // 陣列的解構賦值
         let arr = [3, 4, 5];
-
-        // #1 let [d1,d2,d3]=arr;
-
+        // #1 let [d1,d2,d3]=arr
+        // #2 
         let d1, d2, d3,d4;
-        [d1, d2, d3,d4=10] = arr;
+        // 解構時可先給值 但給值與陣列都有值時 顯示陣列值
+        [d1, d2, d3=2,d4=10] = arr;
 
         console.log(d1, d2, d3,d4);
 

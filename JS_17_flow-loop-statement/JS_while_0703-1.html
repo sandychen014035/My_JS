@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請輸入成績N次,直到輸入{-1}或{取消}就結束輸入
+        // 第1次分數：90
+        // 第2次分數：50
+        // 第3次分數：60
+        // 第4次分數：-1或取消
+        // ------顯示------
+        // 及格人數：2人
+        // 不及格人數：2人
+        // 總分：200分
+        // 總平均：66.67分
+
+        // 宣告變數
+        let passNum = 0;  // 及格人數
+        let noPassNum = 0;// 不及格人數
+        let total = 0; // 總分
+        let average = 0; // 平均
+        let times = 0; // 次數
+        let number; // 分數
+
+        // 沒有次數上限,用迴圈while
+
+        while (true) { // 代表任何條件都會執行
+            times = times + 1;
+            number = prompt(`請輸入第${times}次分數`);
+            // 設定停止結果
+            // prompt為字串,判斷需用"-1"
+            if (number == "-1" || number == null) {
+                document.write(`第${times}次分數:-1或取消<br>`);
+                break;
+            } else {
+
+                // 判斷是否及格
+                if (number >= 60 && number <= 100) {
+                    passNum = passNum + 1;
+                    document.write(`第${times}次分數:${number}<br>`);
+                } else if (number < 60 && number > 0) {
+                    noPassNum = noPassNum + 1;
+                    document.write(`第${times}次分數:${number}<br>`);
+                } else {
+                    document.write(`第${times}次分數:${number}非有效分數<br>`);
+                    continue;
+                }
+                // 計算總分
+                // prompt為字串,要轉數值
+                number = Number(number);
+                total = total + number;
+                // 計算平均
+                average = (total / times).toFixed(2);
+            }
+        }
+        document.write(`<hr>`);
+        document.write(`及格人數:${passNum}人<br>`);
+        document.write(`不及格人數:${noPassNum}人<br>`);
+        document.write(`班級總分:${total}分<br>`);
+        document.write(`班級平均:${average}分<br><br>`);
+        document.write(`<hr><br>`);
+
+        
+
+    </script>
+</body>
+
+</html>

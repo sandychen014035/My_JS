@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./JS_35_localStorage_0.html" target="_blank">
+        <label for="uid">帳號</label>
+        <input type="text" id="uid">
+        <br>
+        <label for="upw">密碼</label>
+        <!-- 輸入文字為***=>password -->
+        <input type="text" id="upw">
+        <input type="submit" value="送出" id="btn1">
+    </form>
+    <!-- submit搭配action使用 -->
+   
+
+    <script>
+        // 存放資料在本機端瀏覽器中的Local storage
+        // window.localStorage.setItem("變數","值");=>寫入
+        // window.localStorage.setItem('a1','9');
+
+        // #1 取得文字方便的內容
+        let btn1 = document.querySelector("#btn1");
+        // 清除 Local storage
+        window.localStorage.clear();
+        
+        btn1.addEventListener("click", () => {
+            let uid=document.querySelector("#uid");
+            // 存入localStorage
+            window.localStorage.setItem("uid",uid.value);
+            let upw=document.querySelector("#upw");
+            window.localStorage.setItem("upw",upw.value);
+        });
+        console.log(uid.value);
+    </script>
+
+</body>
+
+</html>

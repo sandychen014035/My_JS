@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 顯示14天后日期 -->
+    <div id="date"></div>
+
+    <script>
+        // 抓取顯示時間的位置
+        let date=document.querySelector("#date");
+        // 顯示的時間變數
+        let time=new Date();
+        // 加14天
+        // setDate => 增加時間天數
+        // getDate()=> 返回當前日期
+        time.setDate(time.getDate() + 14);
+        date.textContent=time.toLocaleDateString();
+    </script>
+</body>
+</html>

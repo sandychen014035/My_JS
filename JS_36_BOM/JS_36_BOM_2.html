@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="open">開啟新視窗</button>
+    <button id="close">關閉新視窗</button>
+
+    <script>
+        // 不使用函式
+        let open=document.querySelector("#open");
+        let close=document.querySelector("#close");
+        // 視窗的變數,後續用來關閉視窗
+        let newWindow;
+        open.addEventListener("click",()=>{
+            // ("路徑","名稱","css參數")
+            newWindow=window.open("./JS_36_BOM_0.html","myWin","height=200,width=400")
+        });
+        close.addEventListener("click",()=>{
+            // newWindow.closed 是否為 false，也就是說視窗尚未關閉
+            if(newWindow&&!newWindow.closed){
+                newWindow.close();
+            }
+        })
+    </script>
+</body>
+</html>

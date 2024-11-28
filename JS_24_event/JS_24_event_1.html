@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 事件處理</title>
+    <style>
+        marquee{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <!-- onmouseover=>滑鼠碰觸 -->
+    <!-- onmouseout=>滑鼠移出 -->
+    <!-- 跑馬燈文字 -->
+     <marquee behavior="" direction=""
+     onmouseover="stop();" onmouseout="start();">
+        我是跑馬燈文字
+     </marquee>
+
+     <!-- action=""=>按下button前往的網址列 -->
+     <form action="">
+        <!-- laber for="" 對應 input id="" -->
+        <label for="uid">帳號:</label>
+        <!-- required=>欄位空白提醒 -->
+        <input type="text" id="uid" required>
+        <br>
+        <label for="upw">密碼:</label>
+        <input type="text" id="upw" required>
+
+        
+     </form>
+     <!-- 按下並執行動作=>onclick -->
+     <button onclick="chkData();">送出</button>
+     <script>
+        function chkData() {
+            alert('hi');
+        }
+     </script>
+</body>
+</html>

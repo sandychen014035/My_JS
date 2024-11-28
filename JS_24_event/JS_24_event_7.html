@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: blue;
+            font-size: 30px;
+        }
+        .change{
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <!-- onmouseover=>移入 -->
+    <!-- onmouseout=>移出 -->
+    <p id="myPig" onmouseover="changeColor();" onmouseout="reColor();">我是小豬豬</p>
+
+    <script>
+        function changeColor(){
+            let myPig=document.querySelector("#myPig");
+            myPig.style.color="red";
+            // 加入class屬性
+            myPig.className="change";
+        }
+        function reColor(){
+            let myPig=document.querySelector("#myPig");
+            // 清空,及回到最初型態
+            myPig.style.color="";
+            myPig.className="";
+
+        }
+    </script>
+</body>
+</html>

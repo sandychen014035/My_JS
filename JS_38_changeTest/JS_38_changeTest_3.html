@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <!-- 下拉式選單 <select><option></option></select> -->
+        <select name="" id="URL">
+            <option value="">請選擇</option>
+            <option value="https://www.google.com.tw/">google</option>
+            <option value="https://tw.search.yahoo.com/;_ylt=AwrtimwKly1nS2QN_Fdr1gt.?fr=mcafee">yahoo</option>
+        </select>
+        <br>
+        <!-- 單選選項 input => type="checkbox"-->
+        <input type="checkbox" id="agree">我同意合約
+        <span id="msg"></span>
+        <input type="submit" value="跳轉">
+    </form>
+    <script>
+        // 按下同意後才能跳轉
+        // 抓取並宣告表單變數
+        let form=document.querySelector("#form");
+        let url=document.querySelector("#URL");
+        // 抓取同意變數
+        let agree=document.querySelector("#agree");
+        // 抓取文字區變數
+        let msg=document.querySelector("#msg");
+
+        // 監聽表單事件=>submit
+        form.addEventListener("submit",function(e){
+            // 錯誤#1 阻止表單的預設提交行為
+            e.preventDefault();
+            // 要有勾選agree才會執行
+            if(agree.checked){
+                // 更改頁面網址
+                location.href=url.value;
+            }else{
+                msg.textContent="請勾選同意";
+                msg.style.color="red";
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_even</title>
+</head>
+<body>
+    <!-- 事件運作方法 -->
+    <!-- #1 程式敘述寫在標籤內的事件中-->
+    <button onclick="alert('顯示訊息1');">顯示訊息1</button>
+    <!-- #2 呼叫函式-->
+    <button onclick="btn2();">顯示訊息2</button>
+    <!-- #3 監聽事件-->
+    <button class="btn3">顯示訊息3</button>
+    <!-- #4 呼叫事件-->
+    <button id="btn4">顯示訊息4</button>
+    <script>
+        // #2 呼叫函式
+        function btn2(){
+            alert('顯示訊息2');
+        }
+        // #3 監聽事件
+        let btn3=document.querySelector(".btn3");
+        // 錯誤#1 addEventListener是使用"click"
+        btn3.addEventListener("click",()=>{
+            alert('顯示訊息3');
+        })
+        // #4 呼叫事件
+        let btn4=document.querySelector("#btn4");
+        // 在點擊時才執行 不用加()
+        btn4.onclick=H4;
+        function H4(){
+            alert('顯示訊息4');
+        }
+    </script>
+</body>
+</html>

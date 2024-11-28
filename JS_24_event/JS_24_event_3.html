@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_even</title>
+    <style>
+        ul{
+            display: flex;
+        }
+        li{
+            margin: 0 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li onclick="changeAbout();">關於我</li>
+        <li onclick="changeExperience();">學經歷</li>
+        <li onclick="changeContact();">聯絡我</li>
+    </ul>
+    <hr>
+    <p class="about" style="display: none;">我是陳豬豬</p>
+    <p class="experience" style="display: none;">豬豬的主人是海豹</p>
+    <p class="contact" style="display: none;">豬豬不接受聯繫</p>
+
+<script>
+    // 宣告抓取變數
+    let aboutDiv=document.querySelector(".about");
+    let experienceDiv=document.querySelector(".experience");
+    let contactDiv=document.querySelector(".contact");
+
+    // 建立一個把全部變數關閉的函式
+    function closure(){
+        // 更改css display:none
+        aboutDiv.style.display="none";
+        experienceDiv.style.display="none";
+        contactDiv.style.display="none";
+    }
+    // 建立三個選單的個別函式
+    function  changeAbout(){
+        // 先把全部內容關閉
+        closure();
+        // 在打開所屬項目內容
+        aboutDiv.style.display="block";
+    }
+    function  changeExperience(){
+        // 先把全部內容關閉
+        closure();
+        // 在打開所屬項目內容
+        experienceDiv.style.display="block";
+    }
+    function  changeContact(){
+        // 先把全部內容關閉
+        closure();
+        // 在打開所屬項目內容
+        contactDiv.style.display="block";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="myfrm">
+        <label for="username">姓名</label>
+        <input type="text" id="username">
+        <input type="submit" id="btn1">
+    </form>
+    <button id="deleteBtn">刪除username</button>
+    <br>
+    <div id="show">會員名稱:</div>
+    <script>
+        // 取得表單
+        let myfrm = document.querySelector("#myfrm");
+        // 表單的監聽事件 => submit事件 觸發表單
+        myfrm.addEventListener("submit", (event) => {
+            // ***畫面會一閃而過 是因為表單提交後頁面會刷新
+            // ***submit 事件處理器中使用 event.preventDefault() 來阻止表單的預設提交行為。
+            event.preventDefault();
+            // window.confirm("")=>顯示一個帶有訊息的對話框，讓使用者確認或取消操作。
+            // 會返回一個布林值：true/false
+            if (window.confirm("確定要送出資料嗎?")) {
+                // 確認送出後顯示文字方況內容
+                let username = document.querySelector("#username"); 
+                let show = document.querySelector("#show");
+                // 存放在localStorage
+                window.localStorage.setItem("username",username.value);
+                // 為字串,可以直接串起來
+                // 顯示在視窗
+                alert((username.value)+", 成功送出");
+                // 顯示在螢幕
+                show.textContent = `會員名稱:${username.value}`;
+                
+            } else { alert("取消送出"); }
+        });
+
+        // 刪除localStorage
+        let deleteBtn=document.querySelector("#deleteBtn");
+        deleteBtn.addEventListener("click",()=>{
+            let text =window.localStorage.getItem("username");
+            if (window.confirm(`確定要刪除"${text}"資料嗎?`)){
+                window.localStorage.removeItem("username");
+            }else{
+                alert("暫時保留資料");
+            }
+        })
+    </script>
+</body>
+
+</html>

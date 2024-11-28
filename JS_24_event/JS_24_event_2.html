@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_event</title>
+</head>
+<body>
+    <button onclick="replace();">按一下改變下面文字</button>
+    <!-- querySelector=>抓取class,id,html標籤 -->
+    <p>第一段用querySelector</p>
+    <!-- getElementsByTagName=>抓取html標籤 -->
+    <p>第二段用getElementsByTagName</p>
+    <!-- getElementsByClassName=>抓取class -->
+    <p class="p3">第三段用getElementsByClassName</p>
+    <!-- getElementsById=>抓取id -->
+    <p id="p4">第四段用getElementsById</p>
+</body>
+<script>
+function replace(){
+    document.querySelector("p").innerHTML="querySelector抓取class,id,html標籤";
+    // getElementsByTagName是陣列值
+    document.getElementsByTagName("p")[1].innerHTML="getElementsByTagName=>抓取html標籤";
+    // getElementsByClassName是陣列值,即使只有一個有要加上[0]
+    document.getElementsByClassName("p3")[0].innerHTML="getElementsByClassName=>抓取class";
+    document.getElementById("p4").innerHTML="getElementById=>抓取id";
+}
+</script>
+</html>

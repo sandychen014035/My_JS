@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigImg{
+            width: 310px;
+            height: 310px;
+            border: 1px solid black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .smallBox{
+            display: flex;
+        }
+        .small{
+            width:70px;
+            height:70px;
+            border: 1px solid black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 10px 10px 0 0 ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .A{
+            background-image: url(./images/pigA.jpg);
+        }
+        .B{
+            background-image: url(./images/pigB.jpg);
+        }
+        .C{
+            background-image: url(./images/pigC.jpg);
+        }
+        .D{
+            background-image: url(./images/pigD.jpg);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 大圖換小圖 -->
+    <!-- onmousedown => 滑鼠按下時觸發-->
+    <!-- onmouseup => 滑鼠鬆開時觸發-->
+    <div class="bigImg"></div>
+    <div class="smallBox">
+        <!-- ();要注意字串或是數值 -->
+        <div class="small A" onmousedown="change('A');"></div>
+        <div class="small B" onmousedown="change('B');"></div>
+        <div class="small C" onmousedown="change('C');"></div>
+        <div class="small D" onmousedown="change('D');"></div>
+    </div>
+    <script>
+       function change(letter){
+        let bigImg=document.querySelector(".bigImg");
+        bigImg.className="bigImg";
+        switch(letter){
+            case "A" :
+            // 以下錯誤 class 會只有A
+            // bigImg.setAttribute("class","A");
+            // 加入新的class
+            // bigImg.classList.add("C");
+            bigImg.className="bigImg A"
+            break;
+            case "B" :
+            bigImg.className="bigImg B"
+            break;
+            case "C" :
+            bigImg.className="bigImg C"
+            break;
+            case "D" :
+            bigImg.className="bigImg D"
+            break;
+        }
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>變更下拉式清單中的選項時,開啟頁面</h2>
+    <form action="">
+        <!-- 下拉式選單 -->
+        <select name="" id="URL">
+            <!-- 點擊後跳轉頁面,將網址寫在value裡面 -->
+            <option value="">請選擇</option>
+            <option value="https://www.google.com.tw/">google</option>
+            <option value="https://www.ikea.com.tw/zh/rooms/bedroom?gad_source=1&gclid=Cj0KCQiA57G5BhDUARIsACgCYnxGQ0UWkKhcHqHa9otcodOX42NhVHZJP8hQGZJqOpgFearKcYM8sjAaArI4EALw_wcB">IKEA</option>
+            <option value="https://www.camacafe.com/?gad_source=1&gclid=Cj0KCQiA57G5BhDUARIsACgCYnyA7VRZcAHC4zDRDuRBj6ahH1WLBj3YNqSaeC3h6QnJj3L1sZFMzvAaAm8hEALw_wcB">CAMA</option>
+        </select>
+    </form>
+    <script>
+        // 抓取並宣告下拉選單變數
+        let uRL=document.querySelector("#URL");
+        // 監聽事件
+        // 下拉選單搭配的監聽事件=>change
+        uRL.addEventListener("change",()=>{
+            // 跳轉頁面
+            // 更改網址為被選擇選項的value
+            // 在同一個視窗中跳轉
+            location.href=uRL.value;
+        })
+    </script>
+</body>
+</html>

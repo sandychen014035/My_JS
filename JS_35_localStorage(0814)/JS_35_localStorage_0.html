@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        登入成功
+        <ul>
+            <li id="loginId">帳號:</li>
+            <li id="loginPw">密碼:</li>
+        </ul>
+    </div>
+    <script>
+        // 抓出Local storage的資料,顯示於螢幕上
+        // #1 宣告變數代表Local storage抓取的資料
+        let loginId=window.localStorage.getItem("uid");
+        let loginPw=window.localStorage.getItem("upw");
+        
+
+        // #2 抓取要改變的範圍給予變數
+        let Id=document.querySelector("#loginId");
+        let Pw=document.querySelector("#loginPw");
+
+        // #3 放進去
+        // 查看該變數資料型態 => 字串
+        console.log(typeof loginId);
+        Id.textContent=`帳號:${loginId}`;
+        Pw.textContent=`密碼:${loginPw}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>檢查是否勾選 我同意合約</h2>
+    <form action="./JS_38_changeTest_0.html" id="myForm">
+        <input type="checkbox" name="" id="agree">我同意合約
+        <br>
+        <span id="errMsg"></span>
+        <br>
+        <input type="submit" value="確定送出">
+    </form>
+    <script>
+        // 宣告並抓取表單變數
+        let myForm=document.querySelector("#myForm");
+        // 宣告並抓取同意變數
+        let agree=document.querySelector("#agree");
+        // 宣告並抓取文字處變數
+        let errMsg=document.querySelector("#errMsg");
+
+        // 監聽表單myForm是否被案送出submit
+        // e=>submit 事件的事件對象
+        myForm.addEventListener("submit",function(e){
+            // 單一勾選:checked
+            // 沒有被勾選=>!
+            if(!agree.checked){
+                // 加入提醒文字
+                errMsg.textContent="請勾選同意";
+                errMsg.style.color="red";
+                e.preventDefault();
+            }
+        })
+    </script>
+</body>
+
+</html>

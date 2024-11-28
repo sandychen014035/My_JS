@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 900px;
+            border: 2px solid black;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box=document.querySelector("#box");
+        // mousemove=>滑鼠移入
+        box.addEventListener("mousemove",function(e){
+            // screenX / screenY : 指標在"螢幕"的X.Y座標,以螢幕左上角為原點
+            // pageX / pageY : 指標在頁面的X.Y座標,畫面可能會超出瀏覽器範圍
+            // clientX / clientY : 指標在"瀏覽器可視範圍"的X.Y座標
+            // offsetX / offsetY : 指標在目標元素中的X.Y座標
+            box.innerHTML = `screenX:${e.screenX} / screenY:${e.screenY}<br>
+                            pageX:${e.pageX} / pageY:${e.pageY}<br>
+                            clientX:${e.clientX} / clientY:${e.clientY}<br>
+                            offsetX:${e.offsetX} / offsetY:${e.offsetY}`;
+        })
+    </script>
+</body>
+
+</html>

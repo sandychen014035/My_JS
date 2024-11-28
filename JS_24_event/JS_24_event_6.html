@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 當游標離開文字方框時,檢查輸入內容不足5個字時,顯示提示訊息 -->
+    <label for="userId">會員編號</label>
+    <!-- size:文字方框的寬度 -->
+    <!-- maxlength:限定最大字數 -->
+    <input type="text" id="userId" size="10" maxlength="5">
+    <label for="userTel">手機號碼</label>
+    <input type="text" id="userTel" size="10" maxlength="10">
+    <!-- 不足時顯示的文字 -->
+    <span id="errMsg" style="color: red;"></span>
+    <input type="button" value="送出">
+
+    <script>
+        // 宣告並抓取會員編號
+        let userId=document.querySelector("#userId");
+        // 監聽事件
+        // blur=>離開文字欄位時
+        userId.addEventListener("blur",()=>{
+            // 抓取提醒訊息位置
+            let errMsg=document.querySelector("#errMsg");
+            // 預設為空字串
+            errMsg.textContent="";
+            if(userId.value.length!=5){
+                errMsg.textContent="會員編號必須5個字元"
+            }else{
+                errMsg.textContent="";
+            }
+        });
+
+        let userTel=document.querySelector("#userTel");
+        // 監聽
+        userTel.addEventListener("blur",()=>{
+            let errMsg=document.querySelector("#errMsg");
+            errMsg.textContent="";
+            if(userTel.value.length!=10){
+                errMsg.textContent="手機號碼必須10個字元"
+            }else{
+                errMsg.textContent="";
+            }
+        });
+    </script>
+</body>
+
+</html>
